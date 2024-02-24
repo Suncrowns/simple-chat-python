@@ -17,6 +17,8 @@ def connect(host: str = '127.0.0.1', port: int = 3000):
     server.send('__join__'.encode('utf-8'))
     while True:
         msg = input('you: ')
+        if msg == '/help':
+            print('/members - get list of members\n/help - get list of commands\n/exit - exit chat')
         if msg == '/exit':
             server.send('__exit__'.encode('utf-8'))
             exit(0)
